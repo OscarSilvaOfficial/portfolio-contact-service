@@ -1,8 +1,10 @@
-from configs.cors import CORS
 from fastapi import FastAPI
-from routes.controllers import router as contacts_router
+from app.routes import ROUTES
+from app.configs.cors import CORS
 
 app = FastAPI(title="FastAPI Contact", version='1.0.0')
 
-app.include_router(contacts_router)
+for route in ROUTES:
+  app.include_router(route)
+
 app.add_middleware(**CORS)

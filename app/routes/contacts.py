@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from factories.email_sender import Factory
-from models.forms import ContactPayload
+from app.factories.email_sender import Factory
+from app.models.forms import ContactPayload
 
 router = APIRouter(prefix="/contacts")
 
