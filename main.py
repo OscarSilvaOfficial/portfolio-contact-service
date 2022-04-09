@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routes import ROUTES
-from app.configs.cors import CORS
+from app.main.routes import ROUTES
+from app.infra.configs.cors import CORS
 
 app = FastAPI(title="FastAPI Contact", version='1.0.0')
 

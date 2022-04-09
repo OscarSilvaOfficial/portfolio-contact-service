@@ -1,5 +1,5 @@
-from app.configs.enviroment import ROOT_EMAIL, ROOT_PASSWORD
-from app.services.mail import EmailCredentials, EmailSender, SMTPServerInfo
+from app.infra.configs.enviroment import ROOT_EMAIL, ROOT_PASSWORD
+from app.infra.services.mail import EmailCredentials, EmailSender, SMTPServerInfo
 
 class Factory:
   
