@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class ContactPayload(BaseModel):
+class Contact(BaseModel):
   name: str
   email: str
   message: str
