@@ -2,6 +2,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+from app.contracts.email_sender_contract import EmailSenderContract
+
 class EmailCredentials():
   
   def __init__(self, email_sender, email_sender_pass) -> None:
@@ -31,7 +33,7 @@ class SMTPServerInfo():
     return self.__smtp_port
   
 
-class EmailSender():
+class EmailSender(EmailSenderContract):
   
   def __init__(self, credentials: EmailCredentials, smtp: SMTPServerInfo) -> None:
     self.__credentials = credentials

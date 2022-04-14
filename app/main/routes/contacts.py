@@ -1,17 +1,15 @@
 from fastapi import APIRouter
+from app.adapters.controllers.contact_controller import ContactController
 from app.main.factories.email_sender import Factory
 from app.models.contact import Contact
 
 router = APIRouter(prefix="/contacts")
+controller = ContactController(contact_service=Factory.email_sender())
 
 @router.get("")
 async def root():
-  return { "message": "Api UP" }
+  return controller.index()
 
 @router.post("")
-async def contact(payload: Contact):
-  sender = Factory.email_sender()
-  subject = 'Contato Portfólio'
-  message = f'Nome: {payload.name}\nEmail: {payload.email}\nMensagem: {payload.message}'
-  sender.send(subject, message)
-  return { "message": "Email enviado com sucesso" }
+async def notify_contact(contact: Contact):
+  return controller.notify_contact(contact)
