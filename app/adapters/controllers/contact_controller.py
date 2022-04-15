@@ -1,5 +1,4 @@
-from app.core.useCases.notify_contact_use_case import notify_contact_use_case
-from app.core.useCases.save_contact_use_case import save_contact_use_case
+from app.core.useCases import notify_contact_use_case, save_contact_use_case
 from app.ports.contact_repository_contract import ContactRepositoryContract
 from app.ports.email_sender_contract import EmailSenderContract
 from app.core.models.contact import Contact
