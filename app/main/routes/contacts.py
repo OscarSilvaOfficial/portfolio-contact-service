@@ -3,7 +3,7 @@ from app.adapters.controllers.contact_controller import ContactController
 from app.main.factories.databases import mongodb_factory
 from app.main.factories.email_sender import email_sender_factory
 from app.adapters.repositories.contact_repository import ContactRepository
-from app.models.contact import Contact
+from app.core.models.contact import Contact
 
 router = APIRouter(prefix="/contacts")
 

@@ -1,6 +1,6 @@
 from app.ports.contact_repository_contract import ContactRepositoryContract
 from app.ports.db_contract import DBContract
-from app.models.contact import Contact
+from app.core.models.contact import Contact
 
 
 class ContactRepository(ContactRepositoryContract):
