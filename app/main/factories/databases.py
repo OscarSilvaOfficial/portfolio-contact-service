@@ -4,9 +4,9 @@ from app.infra.db.mongo import Mongo
 
 def dynamodb_factory():
   return Dynamo(
-    table_name=enviroment.TABLE_NAME,
-    host=enviroment.HOST,
-    port=enviroment.PORT
+    table_name=enviroment.DYNAMO_TABLE_NAME,
+    host=enviroment.DYNAMO_HOST,
+    port=enviroment.DYNAMO_PORT
   )
   
 def mongodb_factory():

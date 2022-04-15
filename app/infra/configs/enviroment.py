@@ -8,9 +8,9 @@ ROOT_EMAIL=os.environ.get('EMAIL')
 ROOT_PASSWORD=os.environ.get('PASSWORD')
 
 # Credenciais de acesso ao banco de dados DYNAMO
-TABLE_NAME=os.environ.get('TABLE_NAME')
-HOST=os.environ.get('HOST')
-PORT=os.environ.get('PORT')
+DYNAMO_TABLE_NAME=os.environ.get('DYNAMO_TABLE_NAME')
+DYNAMO_HOST=os.environ.get('DYNAMO_HOST')
+DYNAMO_PORT=os.environ.get('DYNAMO_PORT')
 
 # Credenciais de acesso ao banco de dados MONGO
 MONGO_CONNECTION_STR=os.environ.get('MONGO_CONNECTION_STR')
