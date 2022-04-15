@@ -19,6 +19,5 @@ async def root():
   return controller.index()
 
 @router.post("")
-async def notify_contact(contact: Contact):
-  controller.save_contact(contact)
-  return controller.notify_contact(contact)
+async def contact_service(contact: Contact):
+  return controller.contact_service(contact)

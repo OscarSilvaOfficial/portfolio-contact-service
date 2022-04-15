@@ -11,11 +11,9 @@ class ContactController:
   def index(self):
     return { "message": "Api UP" }
 
-  def notify_contact(self, contact: Contact):
+  def contact_service(self, contact: Contact):
     subject = 'Contato Portfólio'
     message = f'Nome: {contact.name}\nEmail: {contact.email}\nMensagem: {contact.message}'
     self.__contact_service.send(subject, message)
+    self.__contact_repository.save(contact)
     return { "message": "Email enviado com sucesso" }
-  
-  def save_contact(self, contact: Contact):
-    return self.__contact_repository.save(contact)
