@@ -1,4 +1,4 @@
-from app.ports.db_contract import DBContract
+from app.ports import DBContract
 import boto3
 
 

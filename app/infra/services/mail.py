@@ -1,8 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
-from app.ports.email_sender_contract import EmailSenderContract
+from app.ports import EmailSenderContract
 
 class EmailCredentials():
   

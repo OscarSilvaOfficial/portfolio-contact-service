@@ -1,5 +1,5 @@
 from app.core.models.contact import Contact
-from app.ports.email_sender_contract import EmailSenderContract
+from app.ports import EmailSenderContract
 
 
 def notify_new_contact_use_case(email_sender_service: EmailSenderContract, contact: Contact):
