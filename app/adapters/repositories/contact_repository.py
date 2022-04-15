@@ -9,4 +9,5 @@ class ContactRepository(ContactRepositoryContract):
     self.__db = db
   
   def save(self, contact: Contact):
+    self.__db.create(contact.dict())
     return contact
