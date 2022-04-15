@@ -2,7 +2,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from app.contracts.email_sender_contract import EmailSenderContract
+from app.ports.email_sender_contract import EmailSenderContract
 
 class EmailCredentials():
   

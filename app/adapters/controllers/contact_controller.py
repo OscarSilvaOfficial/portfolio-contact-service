@@ -1,5 +1,5 @@
-from app.contracts.contact_repository_contract import ContactRepositoryContract
-from app.contracts.email_sender_contract import EmailSenderContract
+from app.ports.contact_repository_contract import ContactRepositoryContract
+from app.ports.email_sender_contract import EmailSenderContract
 from app.models.contact import Contact
 
 

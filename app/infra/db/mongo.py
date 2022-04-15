@@ -1,4 +1,4 @@
-from app.contracts.db_contract import DBContract
+from app.ports.db_contract import DBContract
 from fast_nosql_manager import MongoRepository
 
 
