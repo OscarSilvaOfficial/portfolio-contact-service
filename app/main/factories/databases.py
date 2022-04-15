@@ -1,6 +1,6 @@
 from app.infra.configs import enviroment
-from app.infra.db.dynamo import Dynamo
-from app.infra.db.mongo import Mongo
+from app.infra.db import Dynamo, Mongo
+
 
 def dynamodb_factory():
   return Dynamo(
