@@ -1,6 +1,9 @@
 from app.core.useCases import notify_new_contact_use_case, save_contact_use_case
+from app.main.utils.exceptions import SaveContactException
+from app.main.utils.exceptions import NotificationException
 from app.ports import EmailSenderContract, ContactRepositoryContract
 from app.core.models.contact import Contact
+import logging
 
 
 class ContactController:
@@ -12,5 +15,19 @@ class ContactController:
     return { "message": "Api UP" }
 
   def contact_service(self, contact: Contact):
-    notify_new_contact_use_case(self.__email_sender_service, contact)
-    return save_contact_use_case(self.__contact_repository, contact)
+    try:
+      save_contact_use_case(self.__contact_repository, contact)
+    except SaveContactException as e:
+      logging.error(e.message)
+    
+    logging.info(f'Contato salvo com sucesso!')
+    
+    try:
+      notify_new_contact_use_case(self.__email_sender_service, contact)
+    except NotificationException as e:
+      logging.error(e.message)
+      raise NotificationException()
+    
+    logging.info(f'E-mail enviado')
+    
+    return { "message": "Email enviado com sucesso" }
