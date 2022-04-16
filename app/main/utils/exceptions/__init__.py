@@ -1,2 +1,3 @@
 from .notification_exception import NotificationException
-from .save_contact_exeption import SaveContactException
+from .save_contact_exception import SaveContactException
+from .http.execution_error_exception import ExecutionErrorException

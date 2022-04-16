@@ -1,6 +1,5 @@
 from app.core.useCases import notify_new_contact_use_case, save_contact_use_case
-from app.main.utils.exceptions import SaveContactException
-from app.main.utils.exceptions import NotificationException
+from app.main.utils.exceptions import SaveContactException, NotificationException, ExecutionErrorException
 from app.ports import EmailSenderContract, ContactRepositoryContract
 from app.core.models.contact import Contact
 import logging
@@ -26,7 +25,8 @@ class ContactController:
       notify_new_contact_use_case(self.__email_sender_service, contact)
       logger.info(f'E-mail enviado')
     except NotificationException as e:
-      logger.error(str(e))
-      raise NotificationException()
+      message = str(e)
+      logger.error(message)
+      raise ExecutionErrorException(message)
     
     return { "message": "Email enviado com sucesso" }
