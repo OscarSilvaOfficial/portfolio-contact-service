@@ -17,17 +17,15 @@ class ContactController:
   def contact_service(self, contact: Contact):
     try:
       save_contact_use_case(self.__contact_repository, contact)
+      logging.info(f'Contato salvo com sucesso!')
     except SaveContactException as e:
       logging.error(e.message)
     
-    logging.info(f'Contato salvo com sucesso!')
-    
     try:
       notify_new_contact_use_case(self.__email_sender_service, contact)
+      logging.info(f'E-mail enviado')
     except NotificationException as e:
       logging.error(e.message)
       raise NotificationException()
-    
-    logging.info(f'E-mail enviado')
     
     return { "message": "Email enviado com sucesso" }
