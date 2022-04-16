@@ -1,17 +1,14 @@
-from fastapi import APIRouter
 from app.adapters.controllers.contact_controller import ContactController
-from app.main.factories.databases import mongodb_factory
-from app.main.factories.email_sender import email_sender_factory
-from app.adapters.repositories.contact_repository import ContactRepository
+from app.main.factories.email_sender_factory import email_sender_factory
+from app.main.factories import contact_repository_factory
 from app.core.models.contact import Contact
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/contacts")
 
-repository = ContactRepository(db=mongodb_factory())
-
 controller = ContactController(
-  contact_service=email_sender_factory(),
-  contact_repository=repository
+  email_sender_service=email_sender_factory(),
+  contact_repository=contact_repository_factory()
 )
 
 @router.get("")

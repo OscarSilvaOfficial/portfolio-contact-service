@@ -1,0 +1,3 @@
+from app.main.factories.databases_factory import mongodb_factory, dynamodb_factory
+from app.main.factories.email_sender_factory import email_sender_factory
+from app.main.factories.repositories_factory import contact_repository_factory

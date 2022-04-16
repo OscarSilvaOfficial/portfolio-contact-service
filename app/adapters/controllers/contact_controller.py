@@ -5,6 +5,7 @@ from app.ports import EmailSenderContract, ContactRepositoryContract
 from app.core.models.contact import Contact
 import logging
 
+logger = logging.getLogger(__name__)
 
 class ContactController:
   def __init__(self, email_sender_service: EmailSenderContract, contact_repository: ContactRepositoryContract):
@@ -17,15 +18,15 @@ class ContactController:
   def contact_service(self, contact: Contact):
     try:
       save_contact_use_case(self.__contact_repository, contact)
-      logging.info(f'Contato salvo com sucesso!')
+      logger.info(f'Contato salvo com sucesso!')
     except SaveContactException as e:
-      logging.error(str(e))
+      logger.error(str(e))
     
     try:
       notify_new_contact_use_case(self.__email_sender_service, contact)
-      logging.info(f'E-mail enviado')
+      logger.info(f'E-mail enviado')
     except NotificationException as e:
-      logging.error(str(e))
+      logger.error(str(e))
       raise NotificationException()
     
     return { "message": "Email enviado com sucesso" }

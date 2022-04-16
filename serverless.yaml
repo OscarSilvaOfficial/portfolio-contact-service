@@ -21,6 +21,12 @@ custom:
 functions:
   app:
     handler: lambda.handler
+    environment: 
+      EMAIL: oscarkaka222@gmail.com
+      PASSWORD: dyqwducdroumngxo
+      MONGO_CONNECTION_STR: mongodb+srv://oscar:oscar@cluster0.xlh9q.gcp.mongodb.net
+      MONGO_DB_NAME: portfolio
+      MONGO_DB_COLLECTION: contacts
     events:
       - http:
           method: any
