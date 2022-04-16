@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('./.env-local')
 
 # Credenciais de acesso ao e-mail
 ROOT_EMAIL=os.environ.get('EMAIL')

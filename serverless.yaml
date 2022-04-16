@@ -12,15 +12,22 @@ provider:
 plugins:
   - serverless-offline
   - serverless-python-requirements
+  - serverless-dotenv-plugin
 
 custom:
   pythonRequirements:
     dockerizePip: true
     usePoetry: true
+  dotenv:
+    path: ./.env
+    dotenvParser: dotenv.config.js
 
 functions:
   app:
     handler: lambda.handler
+    package:
+      patterns:
+        - .env-local
     events:
       - http:
           method: any
