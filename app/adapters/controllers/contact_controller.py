@@ -7,8 +7,8 @@ import logging
 
 
 class ContactController:
-  def __init__(self, contact_service: EmailSenderContract, contact_repository: ContactRepositoryContract):
-    self.__email_sender_service = contact_service
+  def __init__(self, email_sender_service: EmailSenderContract, contact_repository: ContactRepositoryContract):
+    self.__email_sender_service = email_sender_service
     self.__contact_repository = contact_repository
 
   def index(self):
