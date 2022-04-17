@@ -1,4 +1,4 @@
-service: portfolio-email-services
+service: portfolio-contact-services
 
 package:
   individually: true
