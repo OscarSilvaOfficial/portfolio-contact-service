@@ -1,4 +1,4 @@
-POST https://61xvoezyld.execute-api.us-east-1.amazonaws.com/contacts
+POST http://localhost:3000/dev/contacts
 Content-Type: application/json
 
 {
