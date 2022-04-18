@@ -2,10 +2,17 @@ service: portfolio-contact-services
 
 package:
   individually: true
+  exclude:
+    - .venv/**
+    - .git/**
+    - .scripts/**
+    - node_modules/**
+    - tests/**
+    - scripts.py
   
 provider:
   name: aws
-  runtime: python3.9
+  runtime: python3.8
   region: us-east-1
   stage: ${opt:stage, "dev"}
 
@@ -19,15 +26,12 @@ custom:
     dockerizePip: true
     usePoetry: true
   dotenv:
-    path: ./.env
+    path: ./.env-prod
     dotenvParser: dotenv.config.js
 
 functions:
   app:
     handler: lambda.handler
-    package:
-      patterns:
-        - .env-local
     events:
       - http:
           method: any
